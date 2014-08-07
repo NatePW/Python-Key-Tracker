@@ -13,8 +13,9 @@ class People(models.Model):
         return self.name
     
 class Checkout(models.Model):
-    timeout = models.DateTimeField('timeout')
-    timein = models.DateTimeField('timein')
+    timeOut = models.DateTimeField('timeout')
+    timeIn = models.DateTimeField('timein')
+    isOut = models.BooleanField(default=1)
     key = models.ForeignKey(Key)
     people = models.ForeignKey(People)
     def __unicode__(self):
