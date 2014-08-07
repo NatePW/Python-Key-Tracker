@@ -10,7 +10,9 @@
    version="1.1"
    width="59.25"
    height="112.8125"
-   id="svg2">
+   id="svg2"
+   preserveAspectRatio="xMinYMin meet"
+    viewBox="0 0 60 113">
   <defs
      id="defs4" />
   <metadata

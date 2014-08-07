@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% for key in all_keys %}
 <object onload="this.getSVGDocument().onclick = function(event){location.href='Key/{{ key.id }}/';};" 
-id="keytag-svg{{ key.id }}" width="60" height="113" type="image/svg+xml" data="{% static 'Keys/keytag.svg' %}"></object>
+id="keytag-svg{{ key.id }}" width="180" height="339" type="image/svg+xml" data="{% static 'Keys/keytag.svg' %}"></object>
 {% endfor %}
 
 <script>
@@ -33,9 +33,11 @@ function editSVG(){
 {% if out %}
 fill = ColorLuminance("{{ key.color }}", .2);
 stroke = ColorLuminance("{{ key.color }}", .9);
+hole = "666666";
 {% else %}
 fill = ColorLuminance("{{ key.color }}", -.2);
 stroke = ColorLuminance("{{ key.color }}", .5);
+hole = "000000";
 {% endif %}
 keytag{{ key.id }} = document.getElementById("keytag-svg{{ key.id }}").getSVGDocument();
 keytag{{ key.id }}.getElementById("tspan3774").innerHTML="{{ key.name }}";
@@ -44,6 +46,7 @@ keytag{{ key.id }}.getElementsByTagName("rect")[0].style.setProperty("stroke",st
 keytag{{ key.id }}.getElementById("path3766").style.setProperty("fill",fill);
 keytag{{ key.id }}.getElementById("path3766").style.setProperty("stroke",stroke);
 keytag{{ key.id }}.getElementById("path3768").style.setProperty("stroke",stroke);
+keytag{{ key.id }}.getElementById("path3768").style.setProperty("fill",hole);
 {% endfor %}
 }
 </script>
